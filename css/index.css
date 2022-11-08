@@ -13,13 +13,13 @@ header > nav{
     align-items: center;
     justify-content: space-between;
     border: 1px solid;
-    /* padding: 10px; */
     background: #081C15;
     color: #95D5B2;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
+    position: fixed;
 }
 header > nav > p{
     font-size: 30px;
@@ -39,3 +39,77 @@ header > nav > img{
     margin: 10px;
 }
 
+/* ==================form_wrapper */
+.form_wrapper{
+    height: fit-content;
+    width: min(300px,70%);
+    margin: auto;
+    margin-top: 20vh;
+    background-color: #40916C;
+    padding: 20px;
+    border-radius: 20px;
+    
+}
+.form_wrapper_info{
+    /* border: 1px solid red; */
+    position: relative;
+    width: 220px;
+    height: 320px;
+    overflow: hidden;
+    margin: auto;
+}
+.form_wrapper_info > div {
+    display: flex;
+    position: absolute;
+    top: 0;
+    transition: 1s;
+}
+.signin_signup_wrapper{
+    /* border: 1px solid; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.signin_signup_wrapper > button {
+    padding: 10px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    border: none;
+    background: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.signin_signup_wrapper > button:hover,.signin_signup_wrapper > button:focus{
+    border-bottom: 2px solid white;
+}
+.signin_signup_move{
+    transform: translateX(-50%);
+}
+/* =========form_login */
+.form_login,.form_sign_up{
+    width: 220px
+}
+.form_login > label,.form_sign_up > label{
+    color: white;
+}
+.form_login > input,.form_sign_up > input{
+    padding: 7px;
+    margin: 5px;
+    border: none;
+    width: 85%;
+    border-radius: 10px;
+    font-size: 10px;
+}
+.form_login > button,.form_sign_up > button{
+    margin-top: 20px;
+    padding:7px 0px;
+    width: 85%;
+    background: #081C15;
+    border: none;
+    color: whitesmoke;
+    border-radius: 10px;
+    cursor: pointer;
+}
+/*======= form_sign_up */
