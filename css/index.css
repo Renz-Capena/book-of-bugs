@@ -20,6 +20,7 @@ header > nav{
     left: 0;
     width: 100%;
     position: fixed;
+    /* display: none; */
 }
 header > nav > p{
     font-size: 30px;
@@ -70,18 +71,18 @@ header > nav > img{
     align-items: center;
     justify-content: space-between;
 }
-.signin_signup_wrapper > button {
+.headbtn{
     padding: 10px;
     font-weight: bolder;
     text-transform: uppercase;
     border: none;
     background: none;
-    color: white;
+    color: rgb(255, 255, 255);
     font-size: 20px;
     cursor: pointer;
     margin-bottom: 10px;
 }
-.signin_signup_wrapper > button:hover,.signin_signup_wrapper > button:focus{
+.active{
     border-bottom: 2px solid white;
 }
 .signin_signup_move{
@@ -101,6 +102,7 @@ header > nav > img{
     width: 85%;
     border-radius: 10px;
     font-size: 10px;
+    outline: none;
 }
 .form_login > button,.form_sign_up > button{
     margin-top: 20px;
