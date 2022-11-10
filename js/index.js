@@ -4,6 +4,8 @@ const burgerMenu = document.querySelector('#burgerMenu');
 const nav_btns = document.querySelector('.nav_btns')
 const closeNavBtn = document.querySelector('#close_nav')
 
+const layer = document.querySelector('.layer_black')
+
 
 const closeNav = function(){
     closeNavBtn.style.transform = 'rotate(360deg)'
@@ -13,18 +15,21 @@ const closeNav = function(){
     setTimeout(function(){
         nav_btns.style.left = '-200px'
     },500)
+    layer.style.display = 'none'
 }
 
-closeNavBtn.addEventListener('click',function(){
-    closeNav()
-})
+layer.addEventListener('click',closeNav)
+closeNavBtn.addEventListener('click',closeNav)
 
 burgerMenu.addEventListener('click',function(){
     burgerMenu.style.transform = 'rotate(360deg)';
+
     setTimeout(function(){
         burgerMenu.style.transform = 'rotate(0deg)';
     },500)
+
     nav_btns.style.left = '0px'
+    layer.style.display = 'block'
 })
 
 const form_wrapper_info = document.querySelector('.form_wrapper_info div');

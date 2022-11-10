@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
     require'connection.php';
     $con = connect();
 
@@ -27,7 +27,7 @@
             echo "<script>alert('Wrong Credentials!')</script>";
         }
     }
-?> -->
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,13 +46,16 @@
             </div>
         </nav>
     </header>
+
+    <div class="layer_black"></div>
     <div class="nav_btns">
-        <p><img src="img/close.png" alt="close" id="close_nav"></p>
+        <div><img src="img/close.png" alt="close" id="close_nav"></div>
         <p>Home</p>
         <p>About</p>
         <p>Contact</p>
         <p id="signIn_Nav">Sign In</p>
     </div>
+
     <section>
         <div class="form_wrapper">
             <div class="close_wrapper_form"><img src="img/close.png" alt="CLOSE" id="close_form_btn"></div>
