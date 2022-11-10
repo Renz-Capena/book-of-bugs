@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
     require'connection.php';
     $con = connect();
 
@@ -27,7 +27,7 @@
             echo "<script>alert('Wrong Credentials!')</script>";
         }
     }
-?>
+?> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,12 +40,22 @@
 <body>
     <header>
         <nav>
-            <p>book of <span>bugs</span></p>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1024px-Hamburger_icon.svg.png" alt="">
+            <div class="mobileview_burger_menu_wrapper">
+                <img src="img/burger_menu.png" alt="MENU" id="burgerMenu">
+                <p>book of <span>bugs</span></p>
+            </div>
         </nav>
     </header>
+    <div class="nav_btns">
+        <p><img src="img/close.png" alt="close" id="close_nav"></p>
+        <p>Home</p>
+        <p>About</p>
+        <p>Contact</p>
+        <p id="signIn_Nav">Sign In</p>
+    </div>
     <section>
         <div class="form_wrapper">
+            <div class="close_wrapper_form"><img src="img/close.png" alt="CLOSE" id="close_form_btn"></div>
             <div class="signin_signup_wrapper">
                 <button id="signInBtn" class="headbtn active">Sign in</button>
                 <button id="signUpBtn" class="headbtn">Sign up</button>
@@ -81,10 +91,6 @@
         </div>
     </section>
 
-    <!-- <script>
-        alert('sa')
-    </script> -->
-    
     <script src="js/index.js"></script>
 </body>
 </html>

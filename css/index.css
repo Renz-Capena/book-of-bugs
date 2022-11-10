@@ -8,7 +8,8 @@ body{
     background: #2D6A4F;
     min-height: 100vh;
 }
-header > nav{
+/*=============== Burger menu */
+.mobileview_burger_menu_wrapper{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -22,34 +23,73 @@ header > nav{
     position: fixed;
     /* display: none; */
 }
-header > nav > p{
+.mobileview_burger_menu_wrapper > p{
     font-size: 30px;
     /* border: 1px solid; */
     font-weight: bolder;
     text-transform: uppercase;
     margin: 10px;
 }
-header > nav > p > span{
+.mobileview_burger_menu_wrapper > p > span{
     color: #2D6A4F;
 }
-header > nav > img{
-    width: 30px;
-    border: 1px solid;
-    padding: 5px;
+.mobileview_burger_menu_wrapper > img{
+    width: 35px;
     border-radius: 50%;
     margin: 10px;
+    transition: 0.5s;
+}
+.nav_btns{
+    /* border: 1px solid red; */
+    background-color: #1B4332;
+    height: 100vh;
+    width: 200px;
+    transition: 0.5s;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: -200px;
+    position: fixed;
+}
+.nav_btns > p{
+    /* border: 1px solid; */
+    text-align: left;
+    padding: 10px;
+    padding-left: 30px;
+    margin: 20px 0px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 20px;
+    font-weight: bolder;
+    color: #dbffef;
+}
+.nav_btns > p:nth-child(1){
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+}
+.nav_btns > p > img{
+    width: 30px;
+    margin: 15px;
+    transition: 0.5s;
 }
 
 /* ==================form_wrapper */
 .form_wrapper{
+    /* border: 1px solid; */
     height: fit-content;
     width: min(300px,70%);
-    margin: auto;
-    margin-top: 20vh;
-    background-color: #40916C;
+    background-color: #1B4332;
     padding: 20px;
     border-radius: 20px;
-    
+    position: absolute;
+    inset: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15vh;
+    position: fixed;
+    transition: 0.5s;
+    transform: scale(0);
 }
 .form_wrapper_info{
     /* border: 1px solid red; */
@@ -113,5 +153,19 @@ header > nav > img{
     color: whitesmoke;
     border-radius: 10px;
     cursor: pointer;
+}
+.close_wrapper_form{
+    display: flex;
+    justify-content: end;
+    margin-bottom: 10px;
+}
+.close_wrapper_form > img{
+    width: 20px;
+    background-color: #081C15;
+    margin-left: 5px;
+    border: 1px solid;
+    border-radius: 50%;
+    padding: 5px;
+    transition: 0.5s;
 }
 /*======= form_sign_up */
