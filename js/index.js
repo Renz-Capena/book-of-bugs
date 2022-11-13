@@ -63,3 +63,11 @@ closeForm.addEventListener('click',function(){
     formContainer.style.transform = 'scale(0)'
 })
 
+// const formLogin = document.querySelector('#form_login')
+
+// formLogin.addEventListener('submit',function(e){
+//     e.preventDefault();
+//     console.log(e.target.email.value)
+//     console.log(e.target.password.value)
+// })
+

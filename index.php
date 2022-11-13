@@ -1,6 +1,7 @@
 <?php
     require'connection.php';
     $con = connect();
+    session_start();
 
     if(isset($_POST['signupBtn'])){
         $name = $_POST['name'];
@@ -20,8 +21,11 @@
 
         $validate = "SELECT * FROM `users` WHERE email = '$email' AND password = '$password' ";
         $list = $con->query($validate);
+        $info = $list->fetch_assoc();  
         $valid = $list->num_rows;
+
         if($valid > 0){
+            $_SESSION['user_id'] = $info['id'];
             header("location: users_home.php");
         }else{
             echo "<script>alert('Wrong Credentials!')</script>";
@@ -65,7 +69,7 @@
             </div>
             <div class="form_wrapper_info">
                 <div>
-                    <form method="post" class="form_login" autocomplete="off">
+                    <form method="post" class="form_login" autocomplete="off" id="form_login">
                         <br><br>
                         <label>Email</label>
                         <input type="email" name="email" placeholder="Email" required>

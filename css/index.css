@@ -158,8 +158,9 @@ body{
     border: none;
     width: 85%;
     border-radius: 10px;
-    font-size: 10px;
+    font-size: 11px;
     outline: none;
+    padding-left:15px;
 }
 .form_login > button,.form_sign_up > button{
     margin-top: 20px;
@@ -189,3 +190,12 @@ body{
     background-color: #081C15;
 }
 /*======= form_sign_up */
+
+.sample{
+    position: absolute;
+    z-index: 5;
+    top: 100px;
+    background-color: #081C15;
+    color: white;
+    width: 100%;
+}
