@@ -21,21 +21,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="css/users_home.css">
+    <title>ADD DIARY</title>
+    <link rel="stylesheet" href="css/add.css">
 </head>
-<body> 
+<body>
     <header>
         <p><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"></img><?php echo $info['nickname'] ?></p>
-
 
         <form method="post">
             <button name="logout_btn">LOGOUT</button>
         </form>
     </header>
+
+    <main>
+        <section>
+            <form class="form_container">
+                <label for="">TITLE</label>
+                <br><br>
+                <input type="text">
+                <br><br><br>
+                <label for="">Diary</label>
+                <br><br>
+                <textarea name="content" id="textarea" placeholder="Dear Diary,"></textarea>
+                <br>
+                <a href="users_home.php">BACK</a>
+                <button>SUBMIT</button>
+            </form>
+        </section>
+    </main>
     
-    <div class="Add_btn">
-        <a href="add.php"><img src="img/add.png" alt="ADD"></a>
-    </div>
+
+    <script src="js/add.js"></script>
 </body>
 </html>
