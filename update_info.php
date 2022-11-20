@@ -21,10 +21,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" href="css/users_home.css">
+    <title>Update Information</title>
+    <link rel="stylesheet" href="css/update_info.css">
 </head>
-<body> 
+<body>
     <header>
         <a href="update_info.php"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"></img><?php echo $info['nickname'] ?></a>
 
@@ -33,9 +33,14 @@
             <button name="logout_btn">LOGOUT</button>
         </form>
     </header>
-    
-    <div class="Add_btn">
-        <a href="add.php"><img src="img/add.png" alt="ADD"></a>
-    </div>
+
+    <form method="post">
+        
+    </form>
+
+
+
+
+    <a href="users_home.php">Back</a>
 </body>
 </html>

@@ -43,28 +43,3 @@ header > form > button{
     border-radius: 5px;
     cursor: pointer;
 }
-
-/* =================add btn */
-.Add_btn{
-    border: 1px solid #95D5B2;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    z-index: 3;
-    bottom: 40px;
-    right: 30px;
-    background-color: #081C15;
-    padding: 10px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    position: fixed;
-    cursor: pointer;
-}
-.Add_btn > a{
-    display: flex;
-    align-items: center;
-}
-.Add_btn > a > img{
-    width: 25px;
-}

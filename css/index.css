@@ -147,6 +147,7 @@ body{
 }
 /* =========form_login */
 .form_login,.form_sign_up{
+    /* border: 1px solid; */
     width: 220px
 }
 .form_login > label,.form_sign_up > label{
