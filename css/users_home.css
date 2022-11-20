@@ -29,10 +29,11 @@ header > a{
     color: white;
 }
 header > a > img{
-    width: 30px;
-    height: 30px;
+    width: 42px;
+    height: 42px;
     margin-right: 10px;
     border-radius: 50%;
+    border: 3px solid #346b52;
 }
 header > form > button{
     background: none;

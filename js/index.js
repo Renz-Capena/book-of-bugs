@@ -69,11 +69,32 @@ closeForm.addEventListener('click',function(){
     formContainer.style.transform = 'scale(0)'
 })
 
-// const formLogin = document.querySelector('#form_login')
 
-// formLogin.addEventListener('submit',function(e){
-//     e.preventDefault();
-//     console.log(e.target.email.value)
-//     console.log(e.target.password.value)
-// })
+
+
+//===============Detect if the user input script
+const form = document.querySelectorAll(".form_sign_up input")
+
+const signUpBtn_form = document.querySelector("button[name='signupBtn']")
+
+const detectScript = function(){
+    let allText = form[0].value+form[1].value+form[2].value+form[3].value
+
+    allText.includes('script') ? signUpBtn_form.disabled = true :  signUpBtn_form.disabled = false
+}
+
+form.forEach((input)=>{
+    input.addEventListener('keyup',function(){
+        
+        if(this.value.includes('script')){
+            this.classList.add('script_alert')
+        }else{
+            this.classList.remove('script_alert')
+        }
+
+        detectScript()
+    })
+})
+
+
 

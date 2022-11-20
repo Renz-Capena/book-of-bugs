@@ -14,6 +14,19 @@
         
         header("location: index.php");
     }
+
+
+    if(isset($_POST['submit'])){
+        $title = $_POST['title'];
+        $date = $_POST['date'];
+        $time = $_POST['time'];
+        $content = $_POST['content'];
+
+        $addthis = "INSERT INTO `diaries`(`user_id`,`title`, `content`, `date`, `time`) VALUES ('$user_id','$title','$content','$date','$time')";
+        $con->query($addthis); 
+
+        header("location: users_home.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,17 +48,22 @@
 
     <main>
         <section>
-            <form class="form_container">
+            <form method="post" class="form_container">
                 <label for="">TITLE</label>
                 <br><br>
-                <input type="text">
+                <input type="text" name="title" required>
+
+                <input type="hidden" name="date">
+                <input type="hidden" name="time">
                 <br><br><br>
-                <label for="">Diary</label>
+                <!-- <label for="">Diary</label> -->
+                <label for="">Text</label>
                 <br><br>
-                <textarea name="content" id="textarea" placeholder="Dear Diary,"></textarea>
+                <!-- <textarea name="content" id="textarea" placeholder="Dear Diary,"></textarea> -->
+                <textarea name="content" id="textarea" required></textarea>
                 <br>
                 <a href="users_home.php">BACK</a>
-                <button>SUBMIT</button>
+                <button name="submit" >SUBMIT</button>
             </form>
         </section>
     </main>

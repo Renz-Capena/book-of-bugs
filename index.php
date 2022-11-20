@@ -73,6 +73,7 @@
                 <button id="signInBtn" class="headbtn active">Sign in</button>
                 <button id="signUpBtn" class="headbtn">Sign up</button>
             </div>  
+
             <form method="post" class="form_login" autocomplete="off" id="form_login">
                 <label>Email</label>
                 <input type="email" name="email" placeholder="Email" required>
@@ -82,6 +83,7 @@
                 <br><br>
                 <button name='loginBtn'>SIGN IN</button>
             </form>
+
             <form method="post" class="form_sign_up form_not_active" autocomplete="off" enctype="multipart/form-data">
                 <label>Name</label>
                 <input type="text" name="name" placeholder="Name" required>
@@ -95,7 +97,7 @@
                 <label>Password</label>
                 <input type="password" name="password" placeholder="Password" required>
                 <br><br>
-                <input type="file" name="picture" class="picture_file">
+                <input type="file" name="picture" class="picture_file" required>
                 <button name='signupBtn'>SIGN UP</button>
             </form>
         </div>

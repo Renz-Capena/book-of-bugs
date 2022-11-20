@@ -189,11 +189,20 @@ body{
 }
 /*======= form_sign_up */
 
-.sample{
-    position: absolute;
-    z-index: 5;
-    top: 100px;
-    background-color: #081C15;
-    color: white;
-    width: 100%;
+.script_alert{
+    border: 2px solid red;
+    animation: error;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+}
+@keyframes error{
+    0%{
+        border: 2px solid red;
+    }
+    50%{
+        border: 2px solid rgb(65, 7, 7);
+    }
+    100%{
+        border: 2px solid red;
+    }
 }

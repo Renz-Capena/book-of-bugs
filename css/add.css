@@ -27,10 +27,11 @@ header > p{
     align-items: center;
 }
 header > p > img{
-    width: 30px;
-    height: 30px;
+    width: 42px;
+    height: 42px;
     margin-right: 10px;
     border-radius: 50%;
+    border: 3px solid #346b52;
 }
 header > form > button{
     background: none;
@@ -77,4 +78,24 @@ header > form > button{
     border-radius: 10px;
     font-weight: bolder;
     font-size: 15px;
+}
+
+
+/* ==========Error alert script */
+.script_alert{
+    border: 2px solid red;
+    animation: error;
+    animation-iteration-count: infinite;
+    animation-duration: 1.5s;
+}
+@keyframes error{
+    0%{
+        border: 2px solid red;
+    }
+    50%{
+        border: 2px solid rgb(65, 7, 7);
+    }
+    100%{
+        border: 2px solid red;
+    }
 }
