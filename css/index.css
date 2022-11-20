@@ -97,30 +97,17 @@ body{
     width: min(300px,70%);
     background-color: #1B4332;
     padding: 20px;
+    padding-bottom: 30px;
     border-radius: 20px;
     position: absolute;
     inset: 0;
     margin-left: auto;
     margin-right: auto;
     margin-top: 15vh;
-    position: fixed;
+    /* position: fixed; */
     transition: 0.5s;
     transform: scale(0);
     z-index: 2;
-}
-.form_wrapper_info{
-    /* border: 1px solid red; */
-    position: relative;
-    width: 220px;
-    height: 320px;
-    overflow: hidden;
-    margin: auto;
-}
-.form_wrapper_info > div {
-    display: flex;
-    position: absolute;
-    top: 0;
-    transition: 1s;
 }
 .signin_signup_wrapper{
     /* border: 1px solid; */
@@ -142,13 +129,16 @@ body{
 .active{
     border-bottom: 2px solid white;
 }
-.signin_signup_move{
-    transform: translateX(-50%);
-}
 /* =========form_login */
 .form_login,.form_sign_up{
+    margin: auto;
+    margin-top: 20px;
     /* border: 1px solid; */
-    width: 220px
+    width: 100%;
+    transition: 0.5s;
+}
+.form_not_active{
+    display: none;
 }
 .form_login > label,.form_sign_up > label{
     color: white;
@@ -163,6 +153,13 @@ body{
     outline: none;
     padding-left:15px;
 }
+.form_sign_up > .picture_file{
+    border: 1px solid;
+    padding: 5px;
+    background-color: #e1f8eb;
+    border-radius: 5px;
+    text-transform: uppercase;
+}
 .form_login > button,.form_sign_up > button{
     margin-top: 20px;
     padding:7px 0px;
@@ -176,7 +173,7 @@ body{
 .close_wrapper_form{
     display: flex;
     justify-content: end;
-    margin-bottom: 10px;
+    /* border: 1px solid; */
 }
 .close_wrapper_form > img{
     width: 20px;

@@ -26,7 +26,7 @@
 </head>
 <body> 
     <header>
-        <a href="update_info.php"><img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"></img><?php echo $info['nickname'] ?></a>
+        <a href="update_info.php"><img src="<?php echo $info['picture'] ?>"></img><?php echo $info['nickname'] ?></a>
 
 
         <form method="post">

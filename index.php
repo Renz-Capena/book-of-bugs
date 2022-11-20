@@ -9,7 +9,13 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        $command = "INSERT INTO users (`name`, `nickname`, `email`, `password`) VALUES ('$name', '$nickname', '$email', '$password')";
+        $picture = $_FILES['picture']['name'];
+        $pictureTmpName = $_FILES['picture']['tmp_name'];
+        $fileDestination = 'uploads/'.$picture;
+
+        move_uploaded_file($pictureTmpName,$fileDestination);
+
+        $command = "INSERT INTO users (`name`, `nickname`, `email`, `password`,`picture`) VALUES ('$name', '$nickname', '$email', '$password','$fileDestination')";
         $con->query($command);
 
         header("location: index.php");
@@ -66,35 +72,32 @@
             <div class="signin_signup_wrapper">
                 <button id="signInBtn" class="headbtn active">Sign in</button>
                 <button id="signUpBtn" class="headbtn">Sign up</button>
-            </div>
-            <div class="form_wrapper_info">
-                <div>
-                    <form method="post" class="form_login" autocomplete="off" id="form_login">
-                        <br><br>
-                        <label>Email</label>
-                        <input type="email" name="email" placeholder="Email" required>
-                        <br><br><br>
-                        <label>Password</label>
-                        <input type="password" name="password" placeholder="Password" required>
-                        <br><br>
-                        <button name='loginBtn'>SIGN IN</button>
-                    </form>
-                    <form method="post" class="form_sign_up" autocomplete="off">
-                        <label>Name</label>
-                        <input type="text" name="name" placeholder="Name" required>
-                        <br><br>
-                        <label>Nickname</label>
-                        <input type="text" name="nickname" placeholder="Nickname" required>
-                        <br><br>
-                        <label>Email</label>
-                        <input type="email" name="email"  placeholder="Email" required>
-                        <br><br>
-                        <label>Password</label>
-                        <input type="password" name="password" placeholder="Password" required>
-                        <button name='signupBtn'>SIGN UP</button>
-                    </form>
-                </div>
-            </div>
+            </div>  
+            <form method="post" class="form_login" autocomplete="off" id="form_login">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="Email" required>
+                <br><br><br>
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Password" required>
+                <br><br>
+                <button name='loginBtn'>SIGN IN</button>
+            </form>
+            <form method="post" class="form_sign_up form_not_active" autocomplete="off" enctype="multipart/form-data">
+                <label>Name</label>
+                <input type="text" name="name" placeholder="Name" required>
+                <br><br>
+                <label>Nickname</label>
+                <input type="text" name="nickname" placeholder="Nickname" required>
+                <br><br>
+                <label>Email</label>
+                <input type="email" name="email"  placeholder="Email" required>
+                <br><br>
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Password" required>
+                <br><br>
+                <input type="file" name="picture" class="picture_file">
+                <button name='signupBtn'>SIGN UP</button>
+            </form>
         </div>
     </section>
 

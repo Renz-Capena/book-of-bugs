@@ -32,17 +32,23 @@ burgerMenu.addEventListener('click',function(){
     layer.style.display = 'block'
 })
 
-const form_wrapper_info = document.querySelector('.form_wrapper_info div');
+//============form switch
+const formLogin = document.querySelector('.form_login')
+const formSignup = document.querySelector('.form_sign_up')
 const signInBtn = document.querySelector('#signInBtn');
 const signUpBtn = document.querySelector('#signUpBtn');
 
 signUpBtn.addEventListener('click',function(){
-    form_wrapper_info.classList.add('signin_signup_move')
+    formSignup.classList.remove('form_not_active')
+    formLogin.classList.add('form_not_active')
+
     signInBtn.classList.remove('active')
     signUpBtn.classList.add('active')
 })
 signInBtn.addEventListener('click',function(){
-    form_wrapper_info.classList.remove('signin_signup_move')
+    formSignup.classList.add('form_not_active')
+    formLogin.classList.remove('form_not_active')
+
     signUpBtn.classList.remove('active')
     signInBtn.classList.add('active')
 })
