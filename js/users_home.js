@@ -1,3 +1,4 @@
+//==========================DATE AND TIME===================
 const dateOutput = document.querySelector("input[name='date']")
 const timeOutput = document.querySelector("input[name='time']")
 
@@ -35,3 +36,28 @@ timeOutput.value = `${hrs}:${min} ${dayTime}`;
 //         textarea.classList.remove('script_alert')
 //     }
 // })
+
+//=================================POST BTN==================
+const postBtn = document.querySelector('#postBtn');
+const createPostWrapper = document.querySelector('#create_post_wrapper');
+const formPostCloseBtn = document.querySelector('#form_post_close_btn');
+
+const post = function(){
+    createPostWrapper.classList.toggle('show')
+}
+
+postBtn.addEventListener('click',function(){
+    post()
+})
+
+formPostCloseBtn.addEventListener('click',function(){
+    post()
+})
+
+//=================================POST BG CHANGE==============
+const textarea = document.querySelector("textarea[name='post_text']");
+const inputBgColor = document.querySelector("input[name='color']");
+
+inputBgColor.addEventListener('change',function(){
+    textarea.style.background = this.value;
+})

@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
     require"connection.php";
     $con = connect();
     session_start();
@@ -14,7 +14,26 @@
         
         header("location: index.php");
     }
-?> -->
+
+    if(isset($_POST['postBtn'])){
+        $user_nickname = $_POST['user_nickname'];
+        $profile_img = $_POST['profile_img'];
+        $date = $_POST['date'];
+        $time = $_POST['time'];
+        $post_text = $_POST['post_text'];
+        $bg_color = $_POST['color'];
+
+
+        $insert_command = "INSERT INTO `post`(`user_id`, `user_nickname`, `profile_img`, `post_text`, `bg_color`, `date`, `time`) VALUES ('$user_id','$user_nickname','$profile_img','$post_text','$bg_color','$date','$time')";
+
+
+        $con->query($insert_command);
+
+        header("location: users_home.php");
+
+        // $img_upload = $_POST['upload_img'];
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,6 +53,9 @@
 
     <div id="create_post_wrapper">
         <form method="post">
+            <div class='form_post_close_btn_wrapper'>
+                <img src="img/close.png" alt="CLOSE" id='form_post_close_btn'>
+            </div>
             <h2>CREATE POST</h2>
             <input type="hidden" name="user_id" value='<?php echo $user_id ?>'>
             <input type="hidden" name="user_nickname" value='<?php echo $info['nickname'] ?>'>
@@ -43,7 +65,11 @@
             <br>
             <textarea name="post_text" placeholder="What's on your mind?" required></textarea>
             <br>
-            <input type="file" name="uploaded_img">
+            <div class='bg_color_select_wrapper'>
+                <label>BACKGROUND COLOR :</label><input type="color" name='color' class='input_color_post'>
+            </div>
+            <br>
+            <input type="file" name="upload_img" class='input_file_upload'>
             <br>
             <button name='postBtn'>POST</button>
         </form>
@@ -51,7 +77,7 @@
     
     <nav>
         <a href=""><img src="img/group_FILL1_wght400_GRAD0_opsz48.png" alt="USERS"></a>
-        <img src="img/add_circle_FILL0_wght400_GRAD0_opsz48.png" alt="USERS">
+        <img src="img/add_circle_FILL0_wght400_GRAD0_opsz48.png" alt="USERS" id='postBtn'>
         <a href="update_info.php"><img src="img/account_circle_FILL1_wght400_GRAD0_opsz48.png" alt="USERS"></a>
     </nav>
 

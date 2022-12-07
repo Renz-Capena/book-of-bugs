@@ -17,7 +17,9 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: fixed;
     /* padding: 10px; */
+    /* display: none; */
 }
 header > div{
     /* border: 1px solid; */
@@ -83,15 +85,46 @@ nav > img,nav > a > img {
     padding: 20px 10px;
     border-radius: 20px;
     box-shadow: 5px 5px 10px black;
+    transition: 0.5s;
+    transform: scale(0);
+}
+.show{
+    transform: scale(1) !important;
 }
 #create_post_wrapper form{
     /* border: 1px solid; */
     text-align: center;
 }
-#create_post_wrapper form input{
-    margin: 20px 0px;
+.form_post_close_btn_wrapper{
+    /* border: 1px solid; */
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-bottom: 10px;
+}
+.form_post_close_btn_wrapper img{
+    width: 20px;
     /* border: 1px solid red; */
-    width: 90%;
+    margin-right: 7px;
+    padding: 7px;
+    border-radius: 50%;
+    background-color: #204434;
+}
+.bg_color_select_wrapper{
+    /* border: 1px solid; */
+    width: 88%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px auto;
+}
+.input_color_post{
+    border: none;
+}
+.input_file_upload{
+    /* border: 1px solid red; */
+    width: 80%;
+    margin-bottom: 20px;
 }
 #create_post_wrapper form textarea{
     outline: none;
@@ -102,6 +135,7 @@ nav > img,nav > a > img {
     padding: 20px;
     font-size: 17px;
     /* border: 1px solid red; */
+    color: #818181;
 }
 #create_post_wrapper form button{
     width: 90%;
