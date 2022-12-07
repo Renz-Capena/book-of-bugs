@@ -10,28 +10,30 @@ body{
     color: white;
 }
 header{
+    position: absolute;
+    width: 100%;
     border-bottom: 1px solid #95D5B2;
     background-color: #081C15;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
+    /* padding: 10px; */
 }
-header > a{
-    font-size: 20px;
-    font-weight: bolder;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    /* border: 1px solid red; */
+header > div{
+    /* border: 1px solid; */
     display: flex;
     align-items: center;
-    text-decoration: none;
-    color: white;
+    justify-content: space-between;
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    color: #95D5B2;
 }
-header > a > img{
+header > div > img{
     width: 42px;
     height: 42px;
-    margin-right: 10px;
+    margin: 5px 10px;
     border-radius: 50%;
     border: 3px solid #346b52;
 }
@@ -44,29 +46,68 @@ header > form > button{
     letter-spacing: 1.5px;
     border-radius: 5px;
     cursor: pointer;
+    margin-right: 10px;
+    /* border: 1px solid red; */
 }
 
-/* =================add btn */
-.Add_btn{
-    border: 1px solid #95D5B2;
-    width: 30px;
-    height: 30px;
+/* =================NAVIGATION */
+nav{
     position: absolute;
-    z-index: 3;
-    bottom: 40px;
-    right: 30px;
-    background-color: #081C15;
-    padding: 10px;
-    border-radius: 50%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: min(400px,100%);
+    border-top: 1px solid #95D5B2;
     display: flex;
+    justify-content: space-around;
     align-items: center;
+    background-color: #081C15;
+    padding: 7px 0px;
     position: fixed;
+    z-index: 2;
+}
+nav > img,nav > a > img {
+    width: 30px;
     cursor: pointer;
 }
-.Add_btn > a{
-    display: flex;
-    align-items: center;
+/*================= create_post_wrapper */
+#create_post_wrapper{
+    /* border: 1px solid; */
+    position: absolute;
+    width: min(400px,80%);
+    height: fit-content;
+    inset: 0;
+    margin: auto;
+    background-color: #081C15;
+    padding: 20px 10px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px black;
 }
-.Add_btn > a > img{
-    width: 25px;
+#create_post_wrapper form{
+    /* border: 1px solid; */
+    text-align: center;
+}
+#create_post_wrapper form input{
+    margin: 20px 0px;
+    /* border: 1px solid red; */
+    width: 90%;
+}
+#create_post_wrapper form textarea{
+    outline: none;
+    resize: none;
+    width: 75%;
+    height: 100px;
+    border-radius: 20px;
+    padding: 20px;
+    font-size: 17px;
+    /* border: 1px solid red; */
+}
+#create_post_wrapper form button{
+    width: 90%;
+    border: none;
+    padding: 7px;
+    border-radius: 5px;
+    color: white;
+    background-color: #204434;
 }

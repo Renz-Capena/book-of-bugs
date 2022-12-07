@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
     require"connection.php";
     $con = connect();
     session_start();
@@ -14,7 +14,7 @@
         
         header("location: index.php");
     }
-?>
+?> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,16 +26,35 @@
 </head>
 <body> 
     <header>
-        <a href="update_info.php"><img src="<?php echo $info['picture'] ?>"></img><?php echo $info['nickname'] ?></a>
-
-
+        <div><img src="<?php echo $info['picture'] ?>"></img><?php echo $info['nickname'] ?></div>
         <form method="post">
             <button name="logout_btn">LOGOUT</button>
         </form>
     </header>
-    
-    <div class="Add_btn">
-        <a href="add.php"><img src="img/add.png" alt="ADD"></a>
+
+    <div id="create_post_wrapper">
+        <form method="post">
+            <h2>CREATE POST</h2>
+            <input type="hidden" name="user_id" value='<?php echo $user_id ?>'>
+            <input type="hidden" name="user_nickname" value='<?php echo $info['nickname'] ?>'>
+            <input type="hidden" name="profile_img" value='<?php echo $info['picture'] ?>'>
+            <input type="hidden" name="date">
+            <input type="hidden" name="time">
+            <br>
+            <textarea name="post_text" placeholder="What's on your mind?" required></textarea>
+            <br>
+            <input type="file" name="uploaded_img">
+            <br>
+            <button name='postBtn'>POST</button>
+        </form>
     </div>
+    
+    <nav>
+        <a href=""><img src="img/group_FILL1_wght400_GRAD0_opsz48.png" alt="USERS"></a>
+        <img src="img/add_circle_FILL0_wght400_GRAD0_opsz48.png" alt="USERS">
+        <a href="update_info.php"><img src="img/account_circle_FILL1_wght400_GRAD0_opsz48.png" alt="USERS"></a>
+    </nav>
+
+    <script src='js/users_home.js'></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <?php
     function connect(){ 
-        $sql = new mysqli('localhost','root','','diary');
+        $sql = new mysqli('localhost','root','','bugs');
         return $sql;
     }
 ?>

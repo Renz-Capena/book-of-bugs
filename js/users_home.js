@@ -20,18 +20,18 @@ dateOutput.value = `${month} ${day}, ${year}`;
 timeOutput.value = `${hrs}:${min} ${dayTime}`;
 
 
-const textarea = document.querySelector('#textarea');
-const submitBtn = document.querySelector("button[name='submit']")
+// const textarea = document.querySelector('#textarea');
+// const submitBtn = document.querySelector("button[name='submit']")
 
-textarea.addEventListener('keyup',function(){
-    let word = textarea.value + ""
+// textarea.addEventListener('keyup',function(){
+//     let word = textarea.value + ""
 
-    if(word.includes('<script') || word.includes('alert(')){
-        textarea.classList.add('script_alert')
-        alert("Please wag kang bobo wag mo lagyan ng script")
-        submitBtn.disabled = true
-    }else{
-        submitBtn.disabled = false
-        textarea.classList.remove('script_alert')
-    }
-})
+//     if(word.includes('<script') || word.includes('alert(')){
+//         textarea.classList.add('script_alert')
+//         alert("Please wag kang bobo wag mo lagyan ng script")
+//         submitBtn.disabled = true
+//     }else{
+//         submitBtn.disabled = false
+//         textarea.classList.remove('script_alert')
+//     }
+// })
