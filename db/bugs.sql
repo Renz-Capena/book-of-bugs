@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2022 at 03:27 AM
+-- Generation Time: Dec 08, 2022 at 03:45 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -18,30 +18,33 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `diary`
+-- Database: `bugs`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `diaries`
+-- Table structure for table `post`
 --
 
-CREATE TABLE `diaries` (
+CREATE TABLE `post` (
   `id` int(11) NOT NULL,
   `user_id` varchar(250) NOT NULL,
-  `title` varchar(500) NOT NULL,
-  `content` longtext NOT NULL,
+  `user_nickname` varchar(250) NOT NULL,
+  `profile_img` varchar(1000) NOT NULL,
+  `post_text` varchar(1000) NOT NULL,
+  `bg_color` varchar(250) NOT NULL,
+  `uploaded_img` varchar(1000) NOT NULL,
   `date` varchar(200) NOT NULL,
   `time` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `diaries`
+-- Dumping data for table `post`
 --
 
-INSERT INTO `diaries` (`id`, `user_id`, `title`, `content`, `date`, `time`) VALUES
-(28, '14', 'hello sample', 'sample content', 'November 26, 2022', '1:25 PM');
+INSERT INTO `post` (`id`, `user_id`, `user_nickname`, `profile_img`, `post_text`, `bg_color`, `uploaded_img`, `date`, `time`) VALUES
+(46, '14', 'renz', 'uploads/47d945f9d42cc90c711ab5451c691354.jpg', 'hi', '#000000', 'uploads_img_post/', 'December 8, 2022', '10:44 AM');
 
 -- --------------------------------------------------------
 
@@ -64,16 +67,16 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `nickname`, `email`, `password`, `picture`) VALUES
 (14, 'renz collin capena', 'renz', 'renz@io', 'renz', 'uploads/47d945f9d42cc90c711ab5451c691354.jpg'),
-(15, 'renz collinfe', 'rea', 'renz@io', 'scripe', 'uploads/');
+(16, 'iori yagami', 'iori yagami pogi', 'king@io', 'king', 'uploads/Mc1.webp');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `diaries`
+-- Indexes for table `post`
 --
-ALTER TABLE `diaries`
+ALTER TABLE `post`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -87,16 +90,16 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `diaries`
+-- AUTO_INCREMENT for table `post`
 --
-ALTER TABLE `diaries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+ALTER TABLE `post`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

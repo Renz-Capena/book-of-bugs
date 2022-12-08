@@ -5,9 +5,18 @@
 
     $user_id = $_SESSION['user_id'];
 
+    //--get user info
     $get_user_info = "SELECT * FROM `users` WHERE id='$user_id'";
     $list = $con->query($get_user_info); 
     $info = $list->fetch_assoc();
+    //-----------
+
+
+    //--get post
+    $get_post = "SELECT * FROM `post` ORDER BY id DESC";
+    $post_list = $con->query($get_post);
+    $post_info = $post_list->fetch_assoc();
+    //------------
 
     if(isset($_POST['logout_btn'])){
         unset($_SESSION['user_id']);
@@ -23,15 +32,20 @@
         $post_text = $_POST['post_text'];
         $bg_color = $_POST['color'];
 
+        //-----------Upload pic
+        $picture = $_FILES['upload_img']['name'];
+        $pictureTmpName = $_FILES['upload_img']['tmp_name'];
+        $picNewDestination = 'uploads_img_post/'.$picture;
 
-        $insert_command = "INSERT INTO `post`(`user_id`, `user_nickname`, `profile_img`, `post_text`, `bg_color`, `date`, `time`) VALUES ('$user_id','$user_nickname','$profile_img','$post_text','$bg_color','$date','$time')";
+        move_uploaded_file($pictureTmpName,$picNewDestination);
+        //--------------------
+
+        $insert_command = "INSERT INTO `post`(`user_id`, `user_nickname`, `profile_img`, `post_text`, `bg_color`, `uploaded_img`, `date`, `time`) VALUES ('$user_id','$user_nickname','$profile_img','$post_text','$bg_color','$picNewDestination','$date','$time')";
 
 
         $con->query($insert_command);
 
         header("location: users_home.php");
-
-        // $img_upload = $_POST['upload_img'];
     }
 ?>
 <!DOCTYPE html>
@@ -51,8 +65,32 @@
         </form>
     </header>
 
+
+    <section>
+        <?php do{ ?>
+        <div class='post_container'>
+            <div class='post_head_profile_details'>
+                <img src="<?php echo $post_info['profile_img'] ?>" alt="Profile pic">
+                <div>
+                    <p><?php echo $post_info['user_nickname'] ?></p>
+                    <p><?php echo $post_info['date'] ?></p>
+                    <p><?php echo $post_info['time'] ?></p>
+                </div>
+            </div>
+            <div class='post_content_text_and_img'>
+                <p><?php echo $post_info['post_text'] ?></p>
+                <?php if($post_info['uploaded_img'] === 'uploads_img_post/'){ ?>
+                
+                <?php }else{ ?>
+                    <img src="<?php echo $post_info['uploaded_img'] ?>">
+                <?php } ?>
+            </div>
+        </div>
+        <?php }while($post_info = $post_list->fetch_assoc()) ?>
+    </section>
+
     <div id="create_post_wrapper">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <div class='form_post_close_btn_wrapper'>
                 <img src="img/close.png" alt="CLOSE" id='form_post_close_btn'>
             </div>

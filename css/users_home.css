@@ -11,6 +11,7 @@ body{
 }
 header{
     position: absolute;
+    top: 0;
     width: 100%;
     border-bottom: 1px solid #95D5B2;
     background-color: #081C15;
@@ -59,7 +60,7 @@ nav{
     left: 0;
     right: 0;
     margin: auto;
-    width: min(400px,100%);
+    width: 100%;
     border-top: 1px solid #95D5B2;
     display: flex;
     justify-content: space-around;
@@ -72,6 +73,15 @@ nav{
 nav > img,nav > a > img {
     width: 30px;
     cursor: pointer;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 0.5s;
+    color: #95D5B2;
+    border: 1px solid transparent;
+}
+nav > img:hover,nav > a > img:hover{
+    border: 1px solid #95D5B2;
+    background-color: black;
 }
 /*================= create_post_wrapper */
 #create_post_wrapper{
@@ -87,6 +97,7 @@ nav > img,nav > a > img {
     box-shadow: 5px 5px 10px black;
     transition: 0.5s;
     transform: scale(0);
+    position: fixed;
 }
 .show{
     transform: scale(1) !important;
@@ -136,6 +147,7 @@ nav > img,nav > a > img {
     font-size: 17px;
     /* border: 1px solid red; */
     color: #818181;
+    font-weight: bolder;
 }
 #create_post_wrapper form button{
     width: 90%;
@@ -144,4 +156,69 @@ nav > img,nav > a > img {
     border-radius: 5px;
     color: white;
     background-color: #204434;
+}
+
+/* ==============================+++++++++ SECTION POST CSS ++++++++++++++++=============*/
+section{
+    margin: 10vh auto;
+    /* border: 1px solid red; */
+    width: min(700px,100%);
+}
+.post_container{
+    /* border: 1px solid ; */
+    padding: 10px;
+    margin: 10px;
+    background-color: #204434;
+    border-radius: 7px;
+}
+.post_head_profile_details{
+    /* border: 1px solid; */
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    background-color: #081C15;
+    border-radius: 7px 7px 0px 0px;
+    padding: 10px;
+}
+.post_head_profile_details img{
+    width: 35px;
+    height: 35px;
+    border: 2px solid #95D5B2;
+    border-radius: 50%;
+}
+.post_head_profile_details div{
+    /* border: 1px solid rgb(128, 0, 38); */
+    text-align: left;
+    margin-left: 10px;
+    line-height: 15px;
+}
+.post_head_profile_details div p:nth-child(1){
+    /* border: 1px solid; */
+    font-size: 20px;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    color: #95D5B2;
+    margin-bottom: 7px;
+}
+.post_head_profile_details div p:nth-child(2),.post_head_profile_details div p:nth-child(3){
+    /* border: 1px solid; */
+    font-size: 12px;
+    color: #b4b4b4;
+}
+/*========== post_content_text_and_img */
+.post_content_text_and_img{
+    /* border: 1px solid red; */
+    overflow: hidden;
+}
+.post_content_text_and_img p{
+    /* border: 1px solid; */
+    text-align: left;
+    margin: 20px 0px;
+    padding-left: 10px;
+    font-size: 20px;
+}
+.post_content_text_and_img img{
+    width: 100%;
+    border-radius: 0px 0px 10px 10px;
 }
