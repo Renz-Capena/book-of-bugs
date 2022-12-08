@@ -73,3 +73,14 @@ formPostCloseBtn.addEventListener('click',function(){
     post();
 })
 
+//======POST MODIFY========
+const modifyPostBtn = document.querySelectorAll('#modify_post_btn');
+const delete_and_edit_btn_wrapper = document.querySelectorAll('.delete_and_edit_btn_wrapper');
+
+
+modifyPostBtn.forEach((btn,index)=>{
+    btn.addEventListener('click',function(){
+        delete_and_edit_btn_wrapper[index].classList.toggle('delete_edit_btn_wrpper_toggle');
+    })
+})
+

@@ -47,6 +47,14 @@
 
         header("location: users_home.php");
     }
+    if(isset($_POST['deletePostBtn'])){
+        $delete_post_id = $_POST['delete_post_id'];
+
+        $delete_command = "DELETE FROM `post` WHERE id='$delete_post_id'";
+        $con->query($delete_command);
+
+        header("location: users_home.php");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,18 +78,36 @@
         <?php do{ ?>
         <div class='post_container'>
             <div class='post_head_profile_details'>
-                <img src="<?php echo $post_info['profile_img'] ?>" alt="Profile pic">
                 <div>
-                    <p><?php echo $post_info['user_nickname'] ?></p>
-                    <p><?php echo $post_info['date'] ?></p>
-                    <p><?php echo $post_info['time'] ?></p>
+                    <img src="<?php echo $post_info['profile_img'] ?>" alt="Profile pic">
+                    <div>
+                        <p><?php echo $post_info['user_nickname'] ?></p>
+                        <p><?php echo $post_info['date'] ?></p>
+                        <p><?php echo $post_info['time'] ?></p>
+                    </div>
                 </div>
+
+                <?php if($user_id == $post_info['user_id']){ ?>
+                    <div>
+                        <img src="img/more_dot.png" alt="Modify" id='modify_post_btn'>
+                        <div class='delete_and_edit_btn_wrapper'>
+                            <a href="#">EDIT</a>
+                            <form method='post'>
+                                <input type="hidden" name='delete_post_id' value='<?php echo $post_info['id'] ?>'>
+                                <button name='deletePostBtn'>DELETE</button>
+                            </form>
+                        </div>
+                    </div>
+                <?php } ?>
+                
             </div>
             <div class='post_content_text_and_img'>
-                <p><?php echo $post_info['post_text'] ?></p>
                 <?php if($post_info['uploaded_img'] === 'uploads_img_post/'){ ?>
-                
+                    <div class='post_text_only' style='background-color:<?php echo $post_info['bg_color'] ?>'>
+                        <?php echo $post_info['post_text'] ?>
+                    </div>
                 <?php }else{ ?>
+                    <p><?php echo $post_info['post_text'] ?></p>
                     <img src="<?php echo $post_info['uploaded_img'] ?>">
                 <?php } ?>
             </div>
