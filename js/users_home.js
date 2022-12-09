@@ -21,23 +21,11 @@ dateOutput.value = `${month} ${day}, ${year}`;
 timeOutput.value = `${hrs}:${min} ${dayTime}`;
 
 
-// const textarea = document.querySelector('#textarea');
-// const submitBtn = document.querySelector("button[name='submit']")
-
-// textarea.addEventListener('keyup',function(){
-//     let word = textarea.value + ""
-
-//     if(word.includes('<script') || word.includes('alert(')){
-//         textarea.classList.add('script_alert')
-//         alert("Please wag kang bobo wag mo lagyan ng script")
-//         submitBtn.disabled = true
-//     }else{
-//         submitBtn.disabled = false
-//         textarea.classList.remove('script_alert')
-//     }
-// })
-
 //=================================POST BTN==================
+
+//--Layer
+const layerOne = document.querySelector('#layerOne')
+
 
 //============POST BG CHANGE==============
 const textarea = document.querySelector("textarea[name='post_text']");
@@ -59,6 +47,7 @@ const createPostWrapper = document.querySelector('#create_post_wrapper');
 const formPostCloseBtn = document.querySelector('#form_post_close_btn');
 
 const post = function(){
+    layerOne.classList.toggle('layerOne_display');
     createPostWrapper.classList.toggle('show');
     textarea.style.background = 'white';
     textarea.value = null;
@@ -80,7 +69,39 @@ const delete_and_edit_btn_wrapper = document.querySelectorAll('.delete_and_edit_
 
 modifyPostBtn.forEach((btn,index)=>{
     btn.addEventListener('click',function(){
+        layerOne.classList.add('layerOne_display');
         delete_and_edit_btn_wrapper[index].classList.toggle('delete_edit_btn_wrpper_toggle');
     })
 })
 
+//-----------------------iframe_edit_post
+const iframeEditPost = document.querySelector('.iframe_edit_post_wrapper');
+const editPostBtn = document.querySelectorAll('#edit_post_btn');
+
+
+editPostBtn.forEach((btn,index)=>{
+    btn.addEventListener('click',function(){
+        iframeEditPost.classList.add('show');
+        delete_and_edit_btn_wrapper[index].classList.remove('delete_edit_btn_wrpper_toggle');
+        layerOne.classList.remove('layerOne_display');
+    })
+})
+
+//---------- close edit form
+const closeEditPostForm = document.querySelector('#close_edit_post_form');
+
+closeEditPostForm.addEventListener('click',function(){
+    location.reload();
+})
+
+//---Layer
+
+layerOne.addEventListener('click',function(){
+    createPostWrapper.classList.remove('show');
+    layerOne.classList.remove('layerOne_display');
+    // iframeEditPost.classList.remove('show');
+
+    delete_and_edit_btn_wrapper.forEach(wrapper=>{
+        wrapper.classList.remove('delete_edit_btn_wrpper_toggle');
+    })
+})
