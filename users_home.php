@@ -46,7 +46,7 @@
 
         $con->query($insert_command);
 
-        header("location: users_home.php");
+        header("Refresh: 0");
     }
     if(isset($_POST['deletePostBtn'])){
         $delete_post_id = $_POST['delete_post_id'];
@@ -54,7 +54,32 @@
         $delete_command = "DELETE FROM `post` WHERE id='$delete_post_id'";
         $con->query($delete_command);
 
-        header("location: users_home.php");
+        header("Refresh: 0");
+    }
+
+    if(isset($_POST['heartBtn'])){
+        $post_id  = $_POST['post_id'];
+        $user_id  = $_POST['user_id'];
+        $value = $_POST['heartBtn'];
+
+        $add_heart = "INSERT INTO `hearts`(`post_id`, `user_id`, `value`) VALUES ('$post_id','$user_id','$value')";
+
+        $con->query($add_heart);
+
+        header("Refresh: 0");
+
+        // echo "<script>alert($value)</script>";
+    }
+
+    if(isset($_POST['deleteHeartBtn'])){
+        $user_id = $info['id'];
+        $post_id = $_POST['post_id'];
+
+        $delete = "DELETE FROM `hearts` WHERE user_id='$user_id' AND post_id='$post_id'";
+
+        $con->query($delete);
+
+        header("Refresh: 0");
     }
 ?>
 <!DOCTYPE html>
@@ -122,6 +147,38 @@
                     <p><?php echo $post_info['post_text'] ?></p>
                     <img src="<?php echo $post_info['uploaded_img'] ?>">
                 <?php } ?>
+            </div>
+            <div class='like_and_comment_wrapper'>
+                <?php
+                    $user_id_log_in = $info['id'];
+
+                    //===============COUNT THE HEARTS
+                    $select_all_heart = "SELECT * FROM `hearts` WHERE post_id='$post_info[id]'";
+                    $list = $con->query($select_all_heart);
+                    $number = $list->num_rows;
+                    //==========================================
+
+                    //==============Check if already react in the post
+                    $check_if_already_react = "SELECT * FROM `hearts` WHERE user_id = '$user_id_log_in' AND post_id='$post_info[id]'";
+                    $temp_list = $con->query($check_if_already_react);
+                    $valid = $temp_list->num_rows;
+                    
+                ?>
+                <form method='post'>
+                    <input type="hidden" name="user_id" value='<?php echo $info['id'] ?>'>
+                    <input type="hidden" name="post_id" value='<?php echo $post_info['id'] ?>'>
+
+                    <?php if($valid){ ?>
+
+                        <button name='deleteHeartBtn'><p><?php echo $number ?></p><img src="img/heart_fill.png" alt="Heart"></button>
+                        
+                    <?php }else{ ?>
+                            
+                        <button name='heartBtn' value='1'><p><?php echo $number ?></p><img src="img/heart_no_fill.png" alt="Heart"></button>
+
+                    <?php } ?>
+                </form>
+                    <button><img src="img/comment.png" alt="Comment"></button>
             </div>
         </div>
         <?php }while($post_info = $post_list->fetch_assoc()) ?>

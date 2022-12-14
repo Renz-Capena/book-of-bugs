@@ -292,6 +292,36 @@ section{
     border-radius: 0px 0px 10px 10px;
 }
 
+/*=================== like and comment css */
+.like_and_comment_wrapper{
+    /* border: 1px solid; */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 10px 0px;
+}
+.like_and_comment_wrapper button{
+    background: none;
+    border: none;
+    /* border: 1px solid #74C69D; */
+    background-color: #081C15;
+    padding: 3px 45px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    color:#95D5B2;
+}
+.like_and_comment_wrapper button p {
+    /* border: 1px solid; */
+    margin-right: 10px;
+}
+.like_and_comment_wrapper button img{
+    padding: 5px 0px;
+    width: 20px;
+    height: 20px;
+    /* border: 1px solid red; */
+}
+
 /*------------------iframe_edit_post */
 .iframe_edit_post_wrapper{
     /* border: 1px solid red; */
