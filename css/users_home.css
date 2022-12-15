@@ -238,6 +238,10 @@ section{
     height: 20px;
     padding: 3px;
     cursor: pointer;
+    transition: 0.5s;
+}
+.post_head_profile_details > div:nth-child(2) > img:hover{
+    background-color: #173a2a;
 }
 .delete_and_edit_btn_wrapper{
     /* border: 1px solid; */
@@ -310,6 +314,11 @@ section{
     align-items: center;
     border-radius: 10px;
     color:#95D5B2;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.like_and_comment_wrapper button:hover{
+    background-color: #003f24;
 }
 .like_and_comment_wrapper button p {
     /* border: 1px solid; */
@@ -322,7 +331,81 @@ section{
     /* border: 1px solid red; */
 }
 
-/*------------------iframe_edit_post */
+/* --------------------send_comment_wrappper */
+.comments_wrapper{
+    /* border: 1px solid white; */
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #081C15;
+    display: none;
+}
+.comment_show{
+    display: block;
+}
+.comments_wrapper div:nth-child(1) form{
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.comments_wrapper div:nth-child(1) form input{
+    padding: 10px;
+    width: 70%;
+    border-radius: 20px;
+    outline: none;
+    border: none;
+} 
+.comments_wrapper div:nth-child(1) form button{
+    display: flex;
+    align-items: center;
+    background: none;
+    margin-left: 10px;
+    border: none;
+} 
+.comments_wrapper div:nth-child(1) form button img{
+    width: 30px;
+}
+
+/* ------------comments */
+.all_comments_wrapper{
+    margin-top: 10px;
+    /* border: 1px solid red; */
+    display: flex;
+    padding: 10px;
+}
+.all_comments_wrapper img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid #95D5B2;
+}
+.all_comments_wrapper div{
+    /* border: 1px solid rgb(21, 255, 0); */
+    text-align: left;
+    margin-left: 10px;
+    /* margin-top: 7px; */
+}
+.all_comments_wrapper div p:nth-child(1){
+    /* border: 1px solid; */
+    text-transform: uppercase;
+    font-size: 17px;
+    font-weight: bolder;
+    letter-spacing: 1.5px;
+}
+.all_comments_wrapper div p:nth-child(2),.all_comments_wrapper div p:nth-child(3){
+    /* border: 1px solid; */
+    font-size: 10px;
+}
+.all_comments_wrapper div p:nth-child(4){
+    font-size: 14px;
+    background-color:#003f24;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+
+/*=====================================iframe_edit_post */
 .iframe_edit_post_wrapper{
     /* border: 1px solid red; */
     transform: scale(0);

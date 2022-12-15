@@ -2,6 +2,9 @@
 const dateOutput = document.querySelector("input[name='date']")
 const timeOutput = document.querySelector("input[name='time']")
 
+const commentDateOutput = document.querySelectorAll("input[name='comment_date']")
+const commentTimeOutput = document.querySelectorAll("input[name='comment_time']")
+
 const date = new Date
 
 const months = ['January','February','March','April','May','June','July','Agust','September','October','November','December']
@@ -16,9 +19,28 @@ let dayTime = date.getHours() >= 12 ? "PM" : "AM";
 let hrs = date.getHours() <= 12 ? date.getHours() : date.getHours() - 12;
 let min = date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes();
 
-
 dateOutput.value = `${month} ${day}, ${year}`;
 timeOutput.value = `${hrs}:${min} ${dayTime}`;
+
+commentDateOutput.forEach(date=>{
+    date.value = `${month} ${day}, ${year}`;
+})
+commentTimeOutput.forEach(time=>{
+    time.value = `${hrs}:${min} ${dayTime}`;
+})
+
+setInterval(function(){
+    dateOutput.value = `${month} ${day}, ${year}`;
+    timeOutput.value = `${hrs}:${min} ${dayTime}`;
+
+    commentDateOutput.forEach(date=>{
+        date.value = `${month} ${day}, ${year}`;
+    })
+    commentTimeOutput.forEach(time=>{
+        time.value = `${hrs}:${min} ${dayTime}`;
+    })
+
+},60000)
 
 
 //=================================POST BTN==================
@@ -35,6 +57,15 @@ inputBgColor.addEventListener('change',function(){
     textarea.style.background = this.value;
 })
 //========CHECK TEXT AREA INPUT IF VALID==========
+
+const comment = document.querySelector("input[name='comment']");
+
+comment.addEventListener('keyup',function(){
+    if(this.value.includes('<script')){
+        this.value = this.value.replaceAll('<script','<******');
+    }
+})
+
 textarea.addEventListener('keyup',function(){
     if(this.value.includes('<script')){
         this.value = this.value.replaceAll('<script','<******');
@@ -103,5 +134,17 @@ layerOne.addEventListener('click',function(){
 
     delete_and_edit_btn_wrapper.forEach(wrapper=>{
         wrapper.classList.remove('delete_edit_btn_wrpper_toggle');
+    })
+})
+
+
+//====================================== comments
+
+const commentWrapper = document.querySelectorAll('.comments_wrapper');
+const commentBtn = document.querySelectorAll('#commentBtn');
+
+commentBtn.forEach((btn,index)=>{
+    btn.addEventListener('click',function(){
+        commentWrapper[index].classList.toggle('comment_show');
     })
 })

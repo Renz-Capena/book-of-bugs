@@ -81,6 +81,21 @@
 
         header("Refresh: 0");
     }
+    if(isset($_POST['commentBtn'])){
+        $user_id = $info['id'];
+        $post_id = $_POST['post_id'];
+        $comment = $_POST['comment'];
+        $picture = $_POST['picture'];
+        $nick_nickname = $_POST['nick_name'];
+        $date = $_POST['comment_date'];
+        $time = $_POST['comment_time'];
+
+        $add_comment = "INSERT INTO `comments`(`post_id`, `user_id`, `comment`, `nick_name`, `pic`, `date`, `time`) VALUES ('$post_id','$user_id','$comment','$nick_nickname','$picture','$date','$time')";
+
+        $con->query($add_comment);
+
+        header("Refresh: 0");
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -152,6 +167,13 @@
                 <?php
                     $user_id_log_in = $info['id'];
 
+
+                    //===============COUNT THE COMMENTS
+                    $select_all_comment = "SELECT * FROM `comments` WHERE post_id='$post_info[id]'";
+                    $list_comment = $con->query($select_all_comment);
+                    $number_comment = $list_comment->num_rows;
+                    //==========================================
+
                     //===============COUNT THE HEARTS
                     $select_all_heart = "SELECT * FROM `hearts` WHERE post_id='$post_info[id]'";
                     $list = $con->query($select_all_heart);
@@ -178,7 +200,48 @@
 
                     <?php } ?>
                 </form>
-                    <button><img src="img/comment.png" alt="Comment"></button>
+                    <button id='commentBtn'><p><?php echo $number_comment ?></p><img src="img/comment.png" alt="Comment"></button>
+            </div>
+
+            <div class='comments_wrapper'>
+                <div>
+                    <form method='post'>
+                        <input type="hidden" name="post_id" value='<?php echo $post_info['id'] ?>'>
+                        <input type="hidden" name="user_id" value='<?php echo $info['id'] ?>'>
+                        <input type="hidden" name="picture" value='<?php echo $info['picture'] ?>'>
+                        <input type="hidden" name="nick_name" value='<?php echo $info['nickname'] ?>'>
+                        <input type="hidden" name="comment_date" >
+                        <input type="hidden" name="comment_time" >
+
+                        <input type="text" name='comment' placeholder='Write a comment...'>
+                        <button name='commentBtn'><img src="img/send_icon.png" alt=""></button>
+                    </form>
+                </div>
+
+                <?php
+                        //===========GET ALL THE COMMENTS IN THE POST
+                        $post_id_for_comments = $post_info['id'];
+                        $show_comment = "SELECT * FROM `comments` WHERE post_id='$post_id_for_comments'";
+                        $comment_list = $con->query($show_comment);
+                        $comment_info = $comment_list->fetch_assoc();
+                        $valid_comment = $comment_list->num_rows;
+                ?>
+
+                <?php if($valid_comment){ ?>
+                    
+                    <?php do{ ?>
+                        <div class='all_comments_wrapper'>
+                            <img src="<?php echo $comment_info['pic'] ?>" alt="Prifile Picture">
+                            <div>
+                                <p><?php echo $comment_info['nick_name'] ?></p>
+                                <p><?php echo $comment_info['date'] ?></p>
+                                <p><?php echo $comment_info['time'] ?></p>
+                                <p><?php echo $comment_info['comment'] ?></p>
+                            </div>
+                        </div>
+                    <?php }while($comment_info = $comment_list->fetch_assoc()) ?>
+
+                <?php } ?>
             </div>
         </div>
         <?php }while($post_info = $post_list->fetch_assoc()) ?>
