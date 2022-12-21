@@ -247,7 +247,29 @@
         <?php }while($post_info = $post_list->fetch_assoc()) ?>
     </section>
 
-    
+    <div class='users_wrapper_list'>
+        <div class='users_list_head'>
+            <p>USERS</p>
+            <img src="img/close.png" alt="Close" id='users_wrapper_list_closebtn'>
+        </div>
+        <?php 
+            $get_all_users = "SELECT * FROM `users`";
+            $users_list = $con->query($get_all_users);
+            $users_info = $users_list->fetch_assoc();
+        ?>
+        <?php do{ ?>
+            <div class='users_card_list'>
+                <div>
+                    <img src="<?php echo $users_info['picture'] ?>" alt="">
+                    <p><?php echo $users_info['name'] ?></p>
+                </div>
+                <div>
+                    <a href="message.php?id=<?php echo $users_info['id'] ?>"><img src="img/message.png" alt="Message"></a>
+                    <a href="#"><img src="img/account_circle_FILL1_wght400_GRAD0_opsz48.png" alt="Profile"></a>
+                </div>
+            </div>
+        <?php }while($users_info = $users_list->fetch_assoc()) ?>
+    </div>
 
     <div id="create_post_wrapper">
         <form method="post" enctype="multipart/form-data">
@@ -275,9 +297,10 @@
     </div>
     
     <nav>
-        <a href=""><img src="img/group_FILL1_wght400_GRAD0_opsz48.png" alt="USERS"></a>
         <img src="img/add_circle_FILL0_wght400_GRAD0_opsz48.png" alt="USERS" id='postBtn'>
-        <a href="update_info.php"><img src="img/account_circle_FILL1_wght400_GRAD0_opsz48.png" alt="USERS"></a>
+        <img src="img/message.png" alt="MESSAGE">
+        <img src="img/group_FILL1_wght400_GRAD0_opsz48.png" alt="USERS" id='showUsersBtn'>
+        <a href="update_info.php"><img src="img/account_circle_FILL1_wght400_GRAD0_opsz48.png" alt="Profile"></a>
     </nav>
 
     <script src='js/users_home.js'></script>

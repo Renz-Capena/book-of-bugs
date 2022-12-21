@@ -1,0 +1,218 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Courier, monospace;
+}
+body{
+    text-align: center;
+    background: #2D6A4F;
+    min-height: 100vh;
+    color: white;
+}
+header{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    border-bottom: 1px solid #95D5B2;
+    background-color: #081C15;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 3;
+    /* padding: 10px; */
+    /* display: none; */
+}
+header > div{
+    /* border: 1px solid; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    color: #95D5B2;
+}
+header > div > img{
+    width: 42px;
+    height: 42px;
+    margin: 5px 10px;
+    border-radius: 50%;
+    border: 3px solid #346b52;
+}
+header a{
+    background: none;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    background-color: #204434;
+    letter-spacing: 1.5px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    /* border: 1px solid red; */
+    text-decoration: none;
+}
+
+/*============================ section */
+section{
+    /* border: 1px solid rgb(0, 255, 13); */
+    position: absolute;
+    top: 8vh;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: min(800px,86%);
+    height: 80vh;
+    position: fixed;
+    overflow: hidden scroll ;
+    padding: 10px;
+}
+
+/*===========message_wrapper_sender */
+
+.message_wrapper_sender{
+    display: flex;
+    /* align-items: center; */
+    justify-content: end;
+    margin: 10px 0px;
+}
+.message_wrapper_sender > img{
+    width: 45px;
+    height: 45px;
+    border: 2px solid #95D5B2;
+    border-radius: 50%;
+}
+.message_wrapper_sender > div{
+    /* border: 1px solid red; */
+    text-align: left;
+    margin-right: 10px;
+    margin-top: 7px;
+    width: min(500px,60%);
+}
+.message_wrapper_sender > div > div{
+    /* border: 1px solid; */
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.message_wrapper_sender > div > div > div{
+    background-color: #081C15;
+    padding: 10px;
+    /* width: min(500px,50%); */
+    border-radius: 10px;
+    letter-spacing: 1.6px;
+    width: fit-content;
+}
+.message_wrapper_sender > div > div > div > img{
+    margin-top: 10px;
+    width: 100%;
+}
+.message_wrapper_sender div p{
+    font-size: 11px;
+    /* border: 1px solid red; */
+    text-align: right;
+    margin-top: 4px;
+}
+
+/*=======message_wrapper_receiver */
+
+.message_wrapper_receiver{
+    /* border: 1px solid red; */
+    display: flex;
+    margin: 10px 0px;
+}
+.message_wrapper_receiver > img{
+    width: 45px;
+    height: 45px;
+    border: 2px solid #95D5B2;
+    border-radius: 50%;
+}
+.message_wrapper_receiver > div{
+    /* border: 1px solid red; */
+    text-align: left;
+    margin-left: 10px;
+    margin-top: 7px;
+    width: min(500px,60%);
+}
+.message_wrapper_receiver > div > div{
+    background-color: #081C15;
+    padding: 10px;
+    border-radius: 10px;
+    letter-spacing: 1.6px;
+    width: fit-content;
+}
+.message_wrapper_receiver > div > div > img{
+    width: 100%;
+    margin-top: 10px;
+}
+.message_wrapper_receiver div p{
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+
+/* ==================================Send  message wrapper */
+.send_message_wrapper{
+    /* border: 1px solid rgb(0, 19, 128); */
+    position: absolute;
+    width: min(500px,100%);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: fixed;
+}
+.send_message_wrapper form{
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+.send_message_wrapper form textarea{
+    resize: none;
+    width: min(300px,75%);
+    /* height: 28px; */
+    margin: 0px 10px;
+    outline: none;
+    border-radius: 10px;
+    padding: 6px 5px;
+}
+.send_message_wrapper form button{
+    display: flex;
+    background: none;
+    border: none;
+    /* border: 1px solid #95D5B2; */
+}
+.file_upload_wrapper{
+    /* border: 1px solid; */
+    display: flex;
+    position: relative;
+}
+.file_upload_wrapper > div{
+    position: absolute;
+    top: -50px;
+    left: -5px;
+    background-color:#081C15;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.5s;
+    transform: scale(0);
+}
+.file_show{
+    transform: scale(1) !important;
+}
+.send_message_wrapper form img{
+    width: 25px;
+    border: 1px solid #95D5B2;
+    padding: 5px;
+    border-radius: 50%;
+}
+.send_message_wrapper form img:hover{
+    background-color: #081C15;
+}
+.send_message_wrapper form button img{
+    border: none;
+}

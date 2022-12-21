@@ -148,3 +148,18 @@ commentBtn.forEach((btn,index)=>{
         commentWrapper[index].classList.toggle('comment_show');
     })
 })
+
+
+//=========================showUsersBtn
+const showUsersBtn = document.querySelector('#showUsersBtn');
+const usersWrapperList = document.querySelector('.users_wrapper_list');
+
+const closeUsersBtn = document.querySelector('#users_wrapper_list_closebtn');
+
+showUsersBtn.addEventListener('click',function(){
+    usersWrapperList.classList.toggle('users_wrapper_list_show');
+})
+
+closeUsersBtn.addEventListener('click',function(){
+    usersWrapperList.classList.remove('users_wrapper_list_show');
+})

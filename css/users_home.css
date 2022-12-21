@@ -72,13 +72,14 @@ nav{
     z-index: 3;
 }
 nav > img,nav > a > img {
-    width: 30px;
+    width: 23px;
     cursor: pointer;
-    padding: 5px;
+    padding: 7px;
     border-radius: 10px;
     transition: 0.5s;
     color: #95D5B2;
     border: 1px solid transparent;
+    /* border: 1px solid red; */
 }
 nav > img:hover,nav > a > img:hover{
     border: 1px solid #95D5B2;
@@ -440,4 +441,87 @@ section{
     height: 400px;
     width: min(400px,90%);
     border: none;
+}
+
+/*==========================users_wrapper_list */
+.users_wrapper_list{
+    background-color: #081C15;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px black;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    position: fixed;
+    z-index: 3;
+    width: min(500px,90%);
+    height: 83vh;
+    padding: 5px;
+    overflow: hidden scroll;
+    transition: 0.5s;
+    transform: scale(0);
+}
+.users_wrapper_list_show{
+    transform: scale(1);
+}
+.users_list_head{
+    /* border: 1px solid; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.users_list_head p{
+    color: #95D5B2;
+    font-size: 20px;
+    font-weight: bolder;
+    margin: 10px 0px 0px 10px;
+}
+.users_list_head img{
+    width: 17px;
+    padding: 7px;
+    border: 1px solid #95D5B2;
+    border-radius: 50%;
+    margin: 10px 10px 0px 0px;
+}
+.users_card_list{
+    /* border: 1px solid red; */
+    background-color: #1b433280;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 5px;
+    border-radius: 10px;
+    margin: 10px 0px;
+}
+.users_card_list div{
+    /* border: 1px solid green; */
+    display: flex;
+    align-items: center;
+}
+.users_card_list div p{
+    color: #95D5B2;
+    font-size: clamp(10px,4vw,20px);
+    text-align: left;
+    padding-left: 10px;
+    text-transform: uppercase;
+}
+.users_card_list div:nth-child(1) img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid #95D5B2;
+}
+.users_card_list div a{
+    text-decoration: none;
+    color: white;
+    font-size: clamp(7px,3vw,15px);
+    /* border: 1px solid #95D5B2; */
+    /* padding: 3px 5px; */
+    margin: 0px 5px;
+    border-radius: 10px;
+    display: flex;
+}
+.users_card_list div a img{
+    /* border: 1px solid red; */
+    width: 20px;
 }
