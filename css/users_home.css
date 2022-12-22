@@ -221,12 +221,13 @@ section{
     letter-spacing: 2px;
     text-transform: capitalize;
     color: #95D5B2;
-    margin-bottom: 7px;
+    margin-bottom: 5px;
 }
 .post_head_profile_details div p:nth-child(2),.post_head_profile_details div p:nth-child(3){
-    /* border: 1px solid; */
-    font-size: 12px;
+    /* border: 1px solid red; */
+    font-size: 11px;
     color: #b4b4b4;
+    line-height: 10px;
 }
 .post_head_profile_details > div:nth-child(2){
     /* border: 1px solid red; */

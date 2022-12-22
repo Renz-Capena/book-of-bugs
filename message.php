@@ -69,7 +69,9 @@
 </head>
 <body>
     <header>
-        <div><img src="<?php echo $receiver_info['picture'] ?>"></img><?php echo $receiver_info['nickname'] ?></div>
+        <div>
+            <img src="<?php echo $receiver_info['picture'] ?>"></img><?php echo $receiver_info['nickname'] ?>
+        </div>
         <a href="users_home.php">BACK</a>
     </header>
 
@@ -154,7 +156,7 @@
                 <img src="img/more_dot.png" alt="File Upload">
             </div>
 
-            <textarea name='message_text' placeholder='Your message...'></textarea>
+            <textarea name='message_text' id='textArea' placeholder='Your message...'></textarea>
             <button name='sendMsg'><img src="img/send_icon.png" alt=""></button>
         </form>
     </div>

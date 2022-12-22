@@ -28,3 +28,12 @@ fileUploadBtn.addEventListener('click',function(){
     fileUploadWrapper.classList.toggle('file_show');
 })
 
+
+//------remove script
+const textArea = document.querySelector('#textArea');
+
+textArea.addEventListener('keyup',function(){
+    if(textArea.value.includes('<script')){
+        textArea.value = textArea.value.replaceAll('<script',"<******")
+    }
+})

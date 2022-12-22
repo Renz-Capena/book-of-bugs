@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Courier, monospace;
+}
+body{
+    text-align: center;
+    background: #2D6A4F;
+    min-height: 100vh;
+    color: white;
+}
+header{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    border-bottom: 1px solid #95D5B2;
+    background-color: #081C15;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 3;
+    /* padding: 10px; */
+    /* display: none; */
+}
+header > div{
+    /* border: 1px solid; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    color: #95D5B2;
+}
+header > div > img{
+    width: 42px;
+    height: 42px;
+    margin: 5px 10px;
+    border-radius: 50%;
+    border: 3px solid #346b52;
+}
+header a{
+    background: none;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    background-color: #204434;
+    letter-spacing: 1.5px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    /* border: 1px solid red; */
+    text-decoration: none;
+}
+
+/*=========== section */
+section{
+    /* border: 1px solid red; */
+    margin: auto;
+    margin-top: 8vh;
+    width: min(800px,98%);
+}
+.profile_info_wrapper{
+    /* border: 1px solid red; */
+    overflow: hidden;
+    /* height: 25vh; */
+    padding: 5px;
+    background-color: #204434;
+    border-radius: 10px;
+}
+.profile_info_wrapper > div{
+    /* border: 1px solid red; */
+    border-radius: 10px;
+    width: 100%;
+}
+.profile_info_wrapper > div > img{
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px 10px 0px 0px;
+}
+.profile_img_wrapper{
+    background-color: #002014;
+}
+.profile_img_wrapper > div{
+    display: flex;
+    /* border: 1px solid red; */
+    width: fit-content;
+    margin-top: -30px;
+    padding: 0px 0px 10px 10px;
+    /* overflow: hidden; */
+}
+.profile_img_wrapper > div >div{
+    width: fit-content;
+    text-align: left;
+    margin-top: 30px;
+    margin-left: 5px;
+}
+.profile_img_wrapper > div > div > p:nth-child(1){
+    border-bottom: 1px solid;
+    font-size: clamp(14px,4vw,25px);
+    text-transform:capitalize;
+    color:#4bdf95;
+    font-weight: bolder;
+}
+.profile_img_wrapper > div > div > p:nth-child(2){
+    font-size: 12px;
+    margin-top: 4px;
+}
+.profile_img_wrapper > div >img{
+    width: 80px;
+    height: 80px;
+    margin: 3px;
+    border-radius: 50%;
+    border:2px solid #95D5B2;
+}

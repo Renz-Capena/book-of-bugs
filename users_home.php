@@ -265,7 +265,7 @@
                 </div>
                 <div>
                     <a href="message.php?id=<?php echo $users_info['id'] ?>"><img src="img/message.png" alt="Message"></a>
-                    <a href="#"><img src="img/account_circle_FILL1_wght400_GRAD0_opsz48.png" alt="Profile"></a>
+                    <a href="profile.php?id=<?php echo $users_info['id'] ?>"><img src="img/account_circle_FILL1_wght400_GRAD0_opsz48.png" alt="Profile"></a>
                 </div>
             </div>
         <?php }while($users_info = $users_list->fetch_assoc()) ?>
@@ -300,7 +300,7 @@
         <img src="img/add_circle_FILL0_wght400_GRAD0_opsz48.png" alt="USERS" id='postBtn'>
         <img src="img/message.png" alt="MESSAGE">
         <img src="img/group_FILL1_wght400_GRAD0_opsz48.png" alt="USERS" id='showUsersBtn'>
-        <a href="update_info.php"><img src="img/account_circle_FILL1_wght400_GRAD0_opsz48.png" alt="Profile"></a>
+        <a href="profile.php?id=<?php echo $info['id'] ?>"><img src="img/account_circle_FILL1_wght400_GRAD0_opsz48.png" alt="Profile"></a>
     </nav>
 
     <script src='js/users_home.js'></script>
