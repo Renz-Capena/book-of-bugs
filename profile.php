@@ -5,6 +5,7 @@
 
     $user_id = $_GET['id'];
 
+    //===get the user profile info
     $get_user_info = "SELECT * FROM `users` WHERE id='$user_id'";
     $list = $con->query($get_user_info); 
     $info = $list->fetch_assoc();
